@@ -1,0 +1,27 @@
+<% if (theme.navfixed == undefined ? false : theme.navfixed) { %>
+    <section class="container content">
+<% } else { %>
+    <section class="container">
+<% } %>
+    <div class="columns">
+        <div class="column three-fourths" >
+            <article class="article-content">
+                <section class="container posts-content">
+                    <% site.posts.each(function(post){ %>
+                        <ol class="posts-list">
+                            <li class="posts-list-item">
+                                <span class="posts-list-meta">
+                                    <%- partial('post/date',{post:post,date_format: null}) %>
+                                </span>
+                                 <%- partial('post/title',{class_name:'posts-list-name',post:post,index:true}) %>
+                            </li>
+                        </ol>
+                    <% }) %>
+                </section>
+            </article>
+        </div>
+        <div class="column one-fourth">
+            <%- partial('_widget/sidebar-tags') %>
+        </div>
+    </div>
+</section>

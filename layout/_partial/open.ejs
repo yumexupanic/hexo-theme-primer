@@ -1,0 +1,114 @@
+<% if (theme.navfixed == undefined ? false : theme.navfixed) { %>
+    <div id="container-open-source">
+<% } else { %>
+    <div>
+<% } %>
+  <section class="container">
+      <header class="text-center">
+          <h1><%= page.mark %></h1>
+          <p class="lead">I have <span id="repo-count">0</span> projects on Github</p>
+      </header>
+      <div class="repo-list">
+        <div class="blankslate"><h3>Loading...</h3></div>
+      </div>
+  </section>
+  <div id="repo-template" style="display:none">
+    <li class="collection-card">
+        <a href="[repo.html_url]" target="_blank" class="collection-card-image geopattern" data-pattern-id="[repo.name]">
+            <h3 class="collection-card-title">[repo.name]</h3>
+        </a>
+        <p class="collection-card-body">[repo.description]</p>
+        <div class="collection-card-meta">
+          <span class="meta-info tooltipped tooltipped-n [repo.language]" aria-label="[repo.language] project">[repo.language]</span>
+          <span class="meta-info tooltipped tooltipped-n" aria-label="[repo.stargazers_count] stars">
+              <span class="octicon octicon-star"></span> [repo.stargazers_count]</span>
+          <span class="meta-info tooltipped tooltipped-n" aria-label="[repo.forks_count] forks">
+              <span class="octicon octicon-git-branch"></span> [repo.forks_count]
+          </span>
+          <span class="meta-info tooltipped tooltipped-n" aria-label="最后更新于：[repo.updated_at]">
+              <span class="octicon octicon-clock"></span>
+              <time datetime="[repo.updated_at]" title="[repo.updated_at]"> [repo.updated_at]</time>
+          </span>
+        </div>
+    </li>
+  </div>
+</div>
+
+<!--Github项模版-->
+<script type="text/template" id="list-template">
+    <li class="collection-card">
+      <a href="{%=clone_url%}" target="_blank" class="collection-card-image geopattern" data-pattern-id="{%=name%}" >
+        <h3 class="collection-card-title">{%=name%}</h3>
+      </a>
+      <p class="collection-card-body">{%=description%}</p>
+      <div class="collection-card-meta">
+        <span class="meta-info tooltipped tooltipped-n {%=language%}" aria-label="{%=language%} Project"></span>
+        <span class="meta-info tooltipped tooltipped-n" aria-label="{%=stargazers_count%} stars">
+          <span class="octicon octicon-star"></span> {%=stargazers_count%}
+        </span>
+        <span class="meta-info tooltipped tooltipped-n" aria-label="{%=forks_count%} forks">
+          <span class="octicon octicon-git-branch"></span> {%=forks_count%}
+        </span>
+        <span class="meta-info tooltipped tooltipped-n" aria-label="最后更新于：{%=updated_at%}">
+          <span class="octicon octicon-clock"></span>
+          <time datetime="{%=updated_at%}" title="{%=updated_at%}"> {%=updated_at%}</time>
+        </span>
+      </div>
+    </li>
+</script>
+
+<%- js('js/baiduTemplate.js')%>
+<!--获取失败模版-->
+<script type="text/template" id="error-template">
+  <div class="blankslate"><h3>加载失败</h3><p>请刷新或稍后再试...</p>></div>
+</script>
+<script type="text/javascript">
+    
+  var open = function(){
+
+    var baiduTpl = new Object();  //百度Template模版
+
+    var handleTpl = function(){
+      baiduTpl.list = baidu.template("list-template");
+      baiduTpl.error = baidu.template("error-template");
+    };
+
+    var handleGithub = function(){
+      var repoContainer = $('.repo-list');
+      var errorContainer = repoContainer.find(".blankslate")
+      var countContainer = $("#repo-count");
+
+      $.get("https://api.github.com/users/<%=theme.profile.github%>/repos",function(result){
+          if(result){
+            errorContainer.remove();
+            countContainer.text(result.length); //设置项目个数
+            var ul = $("<ul class='collection-listing clearfix'></ul>");
+            for(var i in result){
+              var repo = result[i];
+              repo.updated_at = repo.updated_at.substring(0,repo.updated_at.lastIndexOf("T"));
+              var html = baiduTpl.list(repo);
+              ul.append(html); 
+            }
+            repoContainer.append(ul);
+            $(".geopattern").each(function(){     
+              $(this).geopattern($(this).data('pattern-id'));
+            });
+          }else{
+            errorContainer.remove();
+            countContainer.append(baiduTpl.error());
+          }
+      });
+
+    };
+
+    return {
+      init : function(){
+        handleTpl();
+        handleGithub();
+      }
+    }
+  };
+
+  $(open().init);
+
+</script>

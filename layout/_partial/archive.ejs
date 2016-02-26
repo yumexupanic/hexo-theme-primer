@@ -1,0 +1,29 @@
+<% if (theme.navfixed == undefined ? false : theme.navfixed) { %>
+    <section class="container content">
+<% } else { %>
+   <section class="container">
+<% } %>
+    <div class="columns">
+        <div class="column two-thirds">
+            <% page.posts.each(function(post){ %>
+                <%- partial('article', {post: post, index: true}) %>
+            <% }) %>
+        </div>
+        <% if (theme.sidebar) { %>
+            <div class="column one-third">
+                <%- partial('_widget/sidebar') %>
+            </div>
+        <% } %>
+    </div>
+
+    <% if (page.total > 1){ %>
+      <div class="pagination text-align">
+          <div class="btn-group">
+              <%- paginator({
+                  prev_text: '&laquo; Prev',
+                  next_text: 'Next &raquo;'
+              }) %>
+          </div>
+      </div>
+    <% } %>
+</section>

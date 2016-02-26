@@ -1,0 +1,24 @@
+<% if (theme.navfixed == undefined ? false : theme.navfixed) { %>
+  <header class="site-header site-color" id="site-header-id">
+<% } else { %>
+  <header class="site-header navfixed-false">
+<% } %>
+  <div class="container">
+      <h1><a href="<%- url_for() %>" title="<%= config.title %>"><span class="octicon octicon-mark-github"></span> <%= config.title %></a></h1>
+      <nav class="site-header-nav" role="navigation">
+        <% for (var nav in theme.menu) { %>
+              <%
+                var title = nav;
+                var href = theme.menu[nav];
+                var target = null;
+
+                if(typeof theme.menu[nav] == "object"){
+                  href = theme.menu[nav].href;
+                  target = theme.menu[nav].target;
+                }
+              %>
+              <a href="<%- url_for(href) %>" <%if(target){%>target="target"<%}%> class="<% if (page && page.link == href) { %> selected <% } %> site-header-nav-item hvr-underline-from-center" title="<%= title %>"><%= title %></a>
+        <% } %>
+      </nav>
+  </div>
+</header>

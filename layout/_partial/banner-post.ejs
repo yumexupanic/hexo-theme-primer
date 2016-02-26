@@ -1,0 +1,24 @@
+<% if (theme.navfixed == undefined ? false : theme.navfixed) { %>
+    <section class="collection-head collection-head-scrolled geopattern" data-pattern-id="<%= post.title %>" >
+<% } else { %>
+    <section class="collection-head geopattern" data-pattern-id="<%= post.title %>" >
+<% } %>
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header"><%= post.title %></h1>
+            <div class="collection-info">
+                <span class="meta-info">
+                    <% if (theme.navfixed == undefined ? false : theme.navfixed && page.logo && page.mark) { %>
+                        <h2>
+                            <span class="mega-octicon octicon-<%= page.logo%>"></span>
+                            <span>&nbsp;&nbsp;<%= page.mark %></span>
+                        </h2>
+                    <% } else { %>
+                        <span class="octicon octicon-calendar"></span>
+                        <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+                    <% } %>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>

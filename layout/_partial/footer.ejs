@@ -1,0 +1,40 @@
+<footer class="container">
+    <div class="site-footer" role="contentinfo">
+        <div class="copyright left mobile-block">
+                © 2016
+                <span title="yumemor">yumemor</span>
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+        </div>
+
+        <ul class="site-footer-links right mobile-hidden">
+            <li>
+                <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+            </li>
+        </ul>
+
+        <a href="<%= theme.source_code %>" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <ul class="site-footer-links mobile-hidden">
+            
+             <% for (var nav in theme.menu) { %>
+              <%
+                var title = nav;
+                var href = theme.menu[nav];
+                var target = null;
+
+                if(typeof theme.menu[nav] == "object"){
+                  href = theme.menu[nav].href;
+                  target = theme.menu[nav].target;
+                }
+              %>
+              <li>
+                <a href="<%- url_for(href) %>" <%if(target){%>target="target"<%}%> title="<%= title %>"><%= title %></a>
+              </li>
+            <% } %>
+
+        </ul>
+
+    </div>
+</footer>

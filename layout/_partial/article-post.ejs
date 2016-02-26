@@ -1,0 +1,30 @@
+
+<% if (theme.navfixed == undefined ? false : theme.navfixed) { %>
+    <section class="container content">
+<% } else { %>
+    <section class="container">
+<% } %>
+    <div class="columns">
+        <div class="column three-fourths" >
+            <article class="article-content article-entry">
+                <%- post.content %>
+            </article>
+            <% if (page.share == undefined ? true : page.share) { %>
+                <div class="share">
+                    <%- partial('_widget/sns-share') %>
+                </div>    
+            <% } %>
+            <% if (page.comment == undefined ? true : page.comment) { %>
+                <div class="comment">
+                    <%- partial('_widget/duoshuo-comments') %>
+                </div>
+            <% } %>
+        </div>
+        <div class="column one-fourth">
+            <% if (page.toc == undefined ? true:page.toc) { %>
+                <%- partial('_partial/post/toc') %>
+            <% } %>
+        </div>
+       
+    </div>
+</section>
