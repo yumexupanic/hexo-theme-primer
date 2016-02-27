@@ -1,10 +1,10 @@
 
-<div class="ds-thread" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-url="<%= post.path %>"></div>
+<div class="ds-thread" data-thread-key="<%=key%>" data-title="<%=title%>" data-url="<%=url%>"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"<%= theme.comments.duoshuo_username %>"};
 	(function() {
 		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
+		ds.type = 'text/javascript';ds.async = true;s
 		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
 		ds.charset = 'UTF-8';
 		(document.getElementsByTagName('head')[0]
