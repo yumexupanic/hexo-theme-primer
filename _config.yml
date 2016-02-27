@@ -27,7 +27,7 @@ excerpt_link: Read More
 #Github(请务必配置github帐号)
 github:
   popular_repos: ['cordova-plugin-alipay','hexo-theme-primer']
-  #contribute_repos: ['dsfds/cordova-plugin-alipay','fdsfs/fd','121/213']
+  #contribute_repos: ['yumemor/1','yumemor/2']
 
 #Comments
 comments:
@@ -35,5 +35,3 @@ comments:
 
 #Source Code
 source_code: https://github.com/yumemor/yumemor.github.io
-
-#rss: /atom.xml
