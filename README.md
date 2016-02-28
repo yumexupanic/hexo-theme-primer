@@ -1,4 +1,4 @@
-# hexo-theme-primer
+# Hexo-Theme-Primer
 
 ![image](http://7xr9kg.com1.z0.glb.clouddn.com/hexo-theme-primer%2FQQ20160228-0.png)
 
