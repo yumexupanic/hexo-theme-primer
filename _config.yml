@@ -2,7 +2,7 @@
 menu:
 	Home: /
 	Life: 
-		href: http://yumemor.com/subentry/Life/
+		href: subentry/Life/
 		target: true
 	Open-Source: open-source/
 	Blog: blog/
