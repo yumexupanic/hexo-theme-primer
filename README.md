@@ -1,11 +1,8 @@
 # Hexo-Theme-Primer
 
-![image](http://7xr9kg.com1.z0.glb.clouddn.com/hexo-theme-primer%2FQQ20160228-0.png)
+![image](http://7xr9kg.com1.z0.glb.clouddn.com/hexo-theme-primer%2FPrimer.png)
 
-## 说明
-首先感谢原作者[overtrue](https://github.com/overtrue/overtrue.github.io)提供的`jekyll`主题，这款主题是我无意间看技术博客遇见的，当时还以为是Github的什么Blog。
-
-## 为什么叫primer?
+## 为什么叫Primer?
 
 使用了Github的`primer`，主题弥漫着一股Git风，由于个人是个强迫症患者，喜欢简洁 去掉了 `搜索` `分类` 只保留了tag
 
