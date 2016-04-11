@@ -2,6 +2,10 @@
 
 ![image](http://7xr9kg.com1.z0.glb.clouddn.com/hexo-theme-primer%2FPrimer.png)
 
+## 感谢原作者
+
+本主题是基于jekyll的一款主题移植过来的，首先在这里感谢原作者:[overtrue](https://github.com/overtrue/overtrue.github.io)
+
 ## 为什么叫Primer?
 
 使用了Github的`primer`，主题弥漫着一股Git风，由于个人是个强迫症患者，喜欢简洁 去掉了 `搜索` `分类` 只保留了tag
@@ -113,10 +117,4 @@ github:
  
 * 自己的项目 
 * 贡献的项目
-
-## 不足
-由于博客一般都是PC进行访问，所以没有在响应式下面花工夫，此款主题的响应式布局不是很完善，欢迎大家加入自己的想法。
-
-## 最后 
-欢迎大家`Star`／`Fork`，另外 有个小小的请求 ： 能不能点击下Follow？
 
