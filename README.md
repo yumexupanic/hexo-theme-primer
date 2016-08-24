@@ -1,6 +1,6 @@
 # Hexo-Theme-Primer
 
-![image](http://7xr9kg.com1.z0.glb.clouddn.com/hexo-theme-primer%2FPrimer.png)
+![image](http://o7k7yxkn2.bkt.clouddn.com/2016-08-24_Primer.png)
 
 ## 感谢原作者
 
@@ -57,15 +57,13 @@ navfixed: true
 * 开启右侧菜单栏
 * 开启导航fixed布局
 
-
-
 ### 配置多说
 ```yml
 comments:
 	duoshuo_username: 你的账号
 ```
-> 注意⚠️ 如果用disqus评论则必须注释掉多说
-
+> 注意⚠️ 如果用disqus评论请 注释掉多说
+Install
 ```html
 #comments:
 	#doshuo_username: 你的账号
@@ -114,7 +112,4 @@ github:
   contribute_repos: ['yumemor/1','yumemor/2']
 ```
 > 注意⚠️ 配置git项目先检查`profile->github` 有无配置 这是前置条件。
- 
-* 自己的项目 
-* 贡献的项目
 
