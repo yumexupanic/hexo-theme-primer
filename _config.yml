@@ -1,9 +1,6 @@
 # Header
 menu:
 	Home: /
-	Life: 
-		href: subentry/Life/
-		target: true
 	Open-Source: open-source/
 	Blog: blog/
 	Guestbook: guestbook/
@@ -19,15 +16,15 @@ profile:
 
 #Widget
 sidebar: true
-navfixed: true
+navfixed: false
 
 #WidgetText
-excerpt_link: Read More
+excerpt_link: 继续阅读
 
 #Github(请务必配置github帐号)
 github:
-  popular_repos: ['cordova-plugin-alipay','hexo-theme-primer']
-  #contribute_repos: ['yumemor/1','yumemor/2']
+  popular_repos: ['ysale-sms','scude-answer','cordova-plugin-alipay']
+  contribute_repos: ['yumemor/fexo','yumemor/site']
 
 #Comments
 comments:

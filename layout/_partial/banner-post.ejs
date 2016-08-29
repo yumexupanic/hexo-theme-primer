@@ -7,6 +7,7 @@
         <div class="collection-title">
             <h1 class="collection-header"><%= post.title %></h1>
             <div class="collection-info">
+             <% if(page.isShowDate == undefined ? true : page.isShowDate){%>
                 <span class="meta-info">
                     <% if (theme.navfixed == undefined ? false : theme.navfixed && page.logo && page.mark) { %>
                         <h2>
@@ -14,10 +15,11 @@
                             <span>&nbsp;&nbsp;<%= page.mark %></span>
                         </h2>
                     <% } else { %>
-                        <span class="octicon octicon-calendar"></span>
-                        <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+                            <span class="octicon octicon-calendar"></span>
+                            <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
                     <% } %>
                 </span>
+             <%}%>
             </div>
         </div>
     </div>

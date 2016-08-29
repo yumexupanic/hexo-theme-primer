@@ -10,9 +10,9 @@
                     <% site.posts.each(function(post){ %>
                         <ol class="posts-list">
                             <li class="posts-list-item">
-                                <span class="posts-list-meta">
-                                    <%- partial('post/date',{post:post,date_format: null}) %>
-                                </span>
+                                    <span class="posts-list-meta">
+                                        <%- partial('post/date',{post:post,date_format: null}) %>
+                                    </span>
                                  <%- partial('post/title',{class_name:'posts-list-name',post:post,index:true}) %>
                             </li>
                         </ol>
