@@ -20,9 +20,38 @@
 ```
 theme: primer
 ```
-## 功能
 
-### 导航
+## 开源项目页面
+
+![开源项目](http://oct8d1mqf.bkt.clouddn.com/2016-09-27-30AD2169-8D9E-4181-9B5F-73337B1C1120.png)
+
+```shell
+hexo new page 'open-source'
+```
+
+```md
+title: open-source
+layout: open
+---
+
+```
+
+## 分类页面
+
+![分类页面](http://oct8d1mqf.bkt.clouddn.com/2016-09-27-21%3A25%3A04.jpg)
+
+```shell
+hexo new page 'blog'
+```
+
+```md
+title: 文章
+isShowDate: false
+layout: category
+---
+```
+
+## 导航
 
 ```yml
 menu:
@@ -36,7 +65,7 @@ menu:
 ```
 target代表新开启一个页面进行打开
 
-### 个人信息
+## 个人信息
 
 ```yml
 profile:
@@ -47,7 +76,7 @@ profile:
 		#href: http://stackoverflow.com/users/5662132/yumemor
 	#organization: 组织/公司
 ```
-### 布局
+## 布局
 
 ```yml
 sidebar: true
@@ -57,7 +86,7 @@ navfixed: true
 * 开启右侧菜单栏
 * 开启导航fixed布局
 
-### 配置多说
+## 配置多说
 ```yml
 comments:
 	duoshuo_username: 你的账号
@@ -69,7 +98,7 @@ Install
 	#doshuo_username: 你的账号
 ```
 
-### 配置Disuaz
+## 配置Disuaz
 找到primer/_widget/disqus-comments.ejs
 
 ```js
@@ -103,7 +132,7 @@ Install
 
 修改script标签和noscript的标签为`disqus`提供的代码，点击生成代码：[disqus](https://disqus.com/)
 
-### git项目
+## Git项目
 主要是在博客首页显示 以及开源项目页面使用。
 
 ```yml
@@ -113,3 +142,5 @@ github:
 ```
 > 注意⚠️ 配置git项目先检查`profile->github` 有无配置 这是前置条件。
 
+
+欢迎大家 fork push。
