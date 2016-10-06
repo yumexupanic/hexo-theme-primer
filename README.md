@@ -86,51 +86,15 @@ navfixed: true
 * 开启右侧菜单栏
 * 开启导航fixed布局
 
-## 配置多说
+## 配置评论模式(支持多说／Disqus)
 ```yml
 comments:
-	duoshuo_username: 你的账号
-```
-> 注意⚠️ 如果用disqus评论请 注释掉多说
-Install
-```html
-#comments:
-	#doshuo_username: 你的账号
+	duoshuo_username: yumemor # 多说配置
+	disqus_username: yumemor # disqus 配置
+
 ```
 
-## 配置Disuaz
-找到primer/_widget/disqus-comments.ejs
-
-```js
-
-<div class="comments">
-    <div id="disqus_thread"></div>
-
-    <script>
-    /**
-    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-
-    s.src = '//yumemor.disqus.com/embed.js';
-
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-</div>
-```
-
-修改script标签和noscript的标签为`disqus`提供的代码，点击生成代码：[disqus](https://disqus.com/)
+> 如果要使用多说或者Disqus，请先创建 Site
 
 ## Git项目
 主要是在博客首页显示 以及开源项目页面使用。

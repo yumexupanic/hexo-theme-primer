@@ -28,7 +28,8 @@ github:
 
 #Comments
 comments:
-	duoshuo_username: yumemor
+	duoshuo_username: yumemor # 多说配置
+	disqus_username: yumemor # disqus 配置
 
 #Source Code
 source_code: https://github.com/yumemor/yumemor.github.io

@@ -14,13 +14,22 @@
                     <%- partial('_widget/sns-share') %>
                 </div>    
             <% } %>
-            <% if (page.comment == undefined ? true : page.comment) { %>
-                <div class="comment">
-                    <%- partial('_widget/duoshuo-comments',{
-                        key: post.slug,
-                        title: post.title,
-                        url: config.url+url_for(post.path)
-                    }) %>
+            <% if (page.comments) { %>
+                <div class="comments">
+                    <%if(theme.comments.disqus_username){%>
+                        <%- partial('_widget/disqus-comments',{
+                            key: post.slug,
+                            title: post.title,
+                            url: config.url+url_for(post.path)
+                        }) %>
+                    <%} else {%>
+                        <%- partial('_widget/duoshuo-comments',{
+                            key: post.slug,
+                            title: post.title,
+                            url: config.url+url_for(post.path)
+                        }) %>
+                    <%}%>
+
                 </div>
             <% } %>
         </div>
