@@ -11,7 +11,10 @@
 使用了Github的`primer`，主题弥漫着一股Git风，由于个人是个强迫症患者，喜欢简洁 去掉了 `搜索` `分类` 只保留了tag
 
 ## 安装
-`git clone https://github.com/yumemor/hexo-theme-primer.git`
+
+```shell
+git clone https://github.com/yumemor/hexo-theme-primer.git
+```
 
 放在你的Hexo／theme下面
 
@@ -94,9 +97,9 @@ comments:
 
 ```
 
-> 如果要使用多说或者Disqus，请先创建 Site
+> 如果要使用多说或者 Disqus，请先创建 Site
 
-## Git项目
+## Git 项目
 主要是在博客首页显示 以及开源项目页面使用。
 
 ```yml
