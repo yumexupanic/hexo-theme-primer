@@ -1,0 +1,24 @@
+<% var title = post.title || post.category%>
+<section class="collection-head geopattern" data-pattern-id="<%= title %>" >
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">
+                <%=title%>
+            </h1>
+            <%if(index == undefined ? true : index){%>
+                <div class="collection-info">
+                    <span class="meta-info">
+                        <span class="octicon octicon-calendar"></span>
+                        <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+                    </span>
+                    <%if(post.categories && post.categories.length){%>
+                        <span class="meta-info">
+                            <span class="octicon octicon-file-directory"></span>
+                            <%- getCategory(post)%>
+                        </span>
+                    <%}%>
+                </div>
+            <%}%>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,13 @@
+<%if(site.tags.length){%>
+	<h3>Blog Categories</h3>
+	<div id="blog-categories">
+		<ul class="list-group">
+			<% site.tags.each(function(tag){ %>
+				<li class="list-group-item">
+					<%=tag.name%>
+	            	<span class="badge"><%=tag.posts.length%></span>
+	        	</li>
+	 		<% }) %>
+		</ul>
+	</div>
+<%}%>

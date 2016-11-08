@@ -1,0 +1,39 @@
+<section class="banner-false">
+    <div class="collection-head">
+        <div class="container">
+            <div class="collection-title">
+                <h1 class="collection-header" id="site-description">
+                    <%-config.description%>
+                </h1>
+                <div class="collection-info">
+                    <% 
+                        var profile = new Object();
+                        profile.location = {class:"octicon-location",href:false};
+                        profile.github = {class:"octicon-mark-github",href:true,prefix:"http://github.com/"};
+                        profile.stackoverflow = {class:"octicon-comment-discussion",href:true,prefix:""};
+                        profile.organization = {class:"octicon-organization",href:false};
+                        var temp = "profile.";
+                    %>
+                    <% for (var i in theme.profile) { %>
+                        <span class="meta-info">
+                            <% if (typeof theme.profile[i] == "object") { %>
+                                <span class="octicon <%= eval(temp.concat(i).concat(".class")) %>">
+                                <a href="<%= theme.profile[i].href %>" target="_blank" title="<%= theme.profile[i].title %>"><%= theme.profile[i].title %></a>
+                            </span>    
+                            <% } else { %>
+                                <span class="octicon <%= eval(temp.concat(i).concat(".class")) %>">
+                                   <% if (!eval(temp.concat(i).concat(".href"))) { %>
+                                        <%= theme.profile[i] %>
+                                    <% } %>
+                                </span>
+                                <% if (eval(temp.concat(i).concat(".href"))) { %>
+                                    <a href="<%= eval(temp.concat(i).concat(".prefix")).concat(theme.profile[i]) %>" target="_blank"><%= theme.profile[i] %></a>
+                                <% } %>
+                            <% } %>
+                        </span>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

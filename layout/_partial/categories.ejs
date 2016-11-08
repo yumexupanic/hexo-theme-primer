@@ -1,0 +1,44 @@
+<section class="container">
+    <div class="columns">
+        <div class="column two-thirds" >
+            <article class="article-content markdown-body">
+                <section class="posts-content">
+                    <%if(type){%>
+                        <% site.categories.each(function(category){ %>
+                            <h3><%=category.name%></h3>             
+                            <ol class="posts-list">
+                            <% category.posts.each(function(post){ %>
+                                <li class="posts-list-item">
+                                        <span class="posts-list-meta">
+                                            <%- partial('post/date',{post:post,date_format: null}) %>
+                                        </span>
+                                     <%- partial('post/title',{class_name:'posts-list-name',post:post,index:true}) %>
+                                </li>
+                            <% }) %>
+                            </ol>
+                        <% }) %>
+                    <%} else {%>
+                        <ol class="posts-list">
+                            <% site.categories.each(function(category){ %>
+                                <%if(page.category == category.name){%>
+                                    <% category.posts.each(function(post){ %>
+                                        <li class="posts-list-item">
+                                            <span class="posts-list-meta">
+                                                <%- partial('post/date',{post:post,date_format: null}) %>
+                                            </span>
+                                             <%- partial('post/title',{class_name:'posts-list-name',post:post,index:true}) %>
+                                        </li>
+                                    <% }) %>
+                                <%}%>
+                            <% }) %>
+                        </ol>
+                    <%}%>
+                </section>
+            </article>
+        </div>
+        <div class="column one-third">
+            <%- partial('_widget/sidebar-search') %>
+            <%- partial('_widget/sidebar-tags') %>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+		
+		<%- js('js/typer') %>
+
+		<%- js('js/geopattern') %>
+
+		<%if(page.toc){%>
+			<%- js('js/toc') %>
+		<%}%>
+
+
+		<%- js('js/highlight.pack') %>
+		<%- js('js/index') %>
+
+		<% if (theme.github.username && theme.github.popular_repos) { %> <%- js('js/popular_repo') %> <% } %>
+
+	</body>
+</html>
