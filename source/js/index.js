@@ -63,11 +63,28 @@ var index = function(){
 
 	}
 
+	var handleFancyBox = function(){
+		$(".article-content img").each(function(){
+			var href = $(this).attr("src");
+			var title = $(this).attr("alt");
+			var parentNode = $(this).parent();
+
+			$(this).appendTo($("<a class='fancybox' rel='group' href='"+href+"' title='"+title+"'></a>").appendTo(parentNode));
+		})
+
+		$(".fancybox").fancybox({
+			openEffect	: 'none',
+			closeEffect	: 'none'
+		});
+
+	}
+
 	return {
 		init:function(){
 			//handleScroll();
-			handleHighlight();
 			handleGeoPattern();
+			handleHighlight();
+			handleFancyBox();
 			handlePager();
 			handleEvent();
 		}
