@@ -92,7 +92,16 @@ comments:
 	disqus_username: yumemor # disqus 配置
 
 ```
-
+## highlightjs
+在使用时 请关闭系统的 highlightjs 配置
+``` yaml
+highlight:
+  enable: false
+    line_number: false
+      auto_detect: false
+        tab_replace:
+```
+不关闭系统的高亮，代码高亮可能没有办法正常显示
 
 ## 2.0 升级说明
 
