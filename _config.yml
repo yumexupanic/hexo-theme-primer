@@ -29,3 +29,8 @@ github:
 #Comments
 duoshuo_username: yumemor # 多说配置
 #disqus_username: yumemor # disqus 配置
+
+# Search 
+# google | local
+search:
+    use: local

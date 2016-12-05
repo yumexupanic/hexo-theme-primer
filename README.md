@@ -103,6 +103,28 @@ highlight:
 ```
 不关闭系统的高亮，代码高亮可能没有办法正常显示
 
+## 搜索
+
+添加了本地搜索，使用方法：
+1. 安装搜索插件
+```
+npm install hexo-generator-search --save
+```
+2. 配置搜索，在 root `_config.yml` 中添加：
+```
+search:
+  path: search.xml
+  field: post
+```
+3. 修改主题目录的 `_config.yml`，选择 google 或者　local
+
+```
+# Search 
+# google | local
+search:
+    use: local
+```
+
 ## 2.0 升级说明
 
 - 增加 category 页面
