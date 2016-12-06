@@ -1,11 +1,29 @@
 <h3>Search</h3>
 
-
+<% if( theme.search.use == "google" ){ %>
 <div id="site_search">
 	<form action="http://www.google.com/search?" data-site="<%=theme.url%>">
     	<input type="text" id="search_box" name="q" placeholder="Search" style="width: 253px;">
     	<button type="button" class="btn btn-default" id="site_search_do"><span class="octicon octicon-search"></span></button>
     </form>
 </div>
-
+<% } %>
 <ul id="search_results"></ul>
+
+<!-- 本地搜索 -->
+<% if( theme.search.use == "local" ){ %>
+	<!-- Local -->
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
+		<label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
+			<i class="material-icons mdl-color-text--white" role="presentation"></i>
+		</label>
+
+		<form id="search-form" class="mdl-textfield__expandable-holder">
+			<input type="text" id="search" class="form-control mdl-textfield__input search-input" name="q" results="0" placeholder="" style="width: 260px;"/>
+			<label id="search-form-label" class="mdl-textfield__label" for="search"></label>
+			
+		</form>
+	</div>
+
+	<div id="local-search-result"></div>
+<% } %>
