@@ -5,8 +5,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
   <link rel="icon" href="/favicon.ico">
-  <title><%= config.title %></title>
+  <% title = config.title.concat(page.title ? " | " + page.title : "")%>
+  <title><%= title %></title>
   <%- css('css/style') %>
   <%- css('lib/fancybox/jquery.fancybox-1.3.4') %>
   <!--在这里倒入jquery 方便处理部分页面的jquery-->
