@@ -1,0 +1,25 @@
+
+#local-search-result>ul.search-result-list>li:hover{
+    background-color: #4078c0;
+}
+
+#local-search-result>ul.search-result-list>li:hover a{
+    color: #FFF;
+} 
+
+#local-search-result>ul.search-result-list>li:hover p{
+    color: #FFF;
+}
+
+
+#local-search-result>ul.search-result-list>li.hover{
+    background-color: #4078c0;
+}
+
+#local-search-result>ul.search-result-list>li.hover a{
+    color: #FFF;
+} 
+
+#local-search-result>ul.search-result-list>li.hover p{
+    color: #FFF;
+}

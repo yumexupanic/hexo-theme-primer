@@ -105,27 +105,26 @@ highlight:
 
 ## 搜索
 
-添加了本地搜索，使用方法：
+> 默认为 google 搜索，如果要修改为本地搜索 参照下面的步骤
 
-1. 安装搜索插件
-```
+- 安装搜索插件
+``` bash
 npm install hexo-generator-search --save
 ```
 
-2. 配置搜索，在 root `_config.yml` 中添加：
-```
+- 配置搜索，在 root `_config.yml` 中添加：
+``` yaml
 search:
   path: search.xml
   field: post
 ```
 
-3. 修改主题目录的 `_config.yml`，选择 google 或者　local
+- 修改主题目录的 `_config.yml`
 
 ```
 # Search 
-# google | local
 search:
-    use: local
+    use: local # google | local
 ```
 
 ## 2.0 升级说明
