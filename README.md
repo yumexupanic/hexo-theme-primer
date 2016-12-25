@@ -8,6 +8,12 @@
 git clone https://github.com/yumemor/hexo-theme-primer.git
 ```
 
+## 请先安装 search 插件，否则使用主题会报错
+
+``` bash
+npm install hexo-generator-search --save
+```
+
 放在你的Hexo／theme下面
 
 修改 `_config.yml`:
@@ -108,6 +114,7 @@ highlight:
 > 默认为 google 搜索，如果要修改为本地搜索 参照下面的步骤
 
 - 安装搜索插件
+
 ``` bash
 npm install hexo-generator-search --save
 ```
