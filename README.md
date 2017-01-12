@@ -150,7 +150,7 @@ search:
 
 - 增加 category 页面
 - 修改 github repository 样式
-- 更换 icon 为 [iconfont](http://www.iconfont.cn) 和 [otcicons](https://otcicons.github.com)
+- 更换 icon 为 [iconfont](http://www.iconfont.cn) 和 [octicons](https://octicons.github.com/)
 - 添加 [七牛静态CDN](https://staticfile.org/)
 - 去掉 banner 的 fixed 布局 ，因为不实用
 - 简化主题配置文件
