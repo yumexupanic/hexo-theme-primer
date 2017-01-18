@@ -6,52 +6,6 @@
 			<%- js('js/toc') %>
 		<%}%>
 
-		<% if( theme.search.use == "local" ){ %>
-			<%- js('js/search') %>
-
-			<script type="text/javascript">
-				$(function(){
-					var currentIndex = -1;
-					var search_path = "<%= config.search.path %>";
-					if (!search_path) search_path = "search.xml";
-					var path = "<%= config.root %>" + search_path;
-					searchFunc(path, 'search', 'local-search-result');
-
-					$(document).delegate("#local-search-result>.search-result-list li","hover",function(){
-						var liNode = $("#local-search-result>.search-result-list li");
-						liNode.removeClass("hover");
-						currentIndex = $("#local-search-result>.search-result-list li").index($(this));
-						liNode.eq(currentIndex).addClass("hover");
-					})
-
-					$("#search-form").submit(function(){
-						return false;
-					})
-
-					$("#search").keydown(function(event){
-						var keyCode = event.keyCode;
-						var liNode = $("#local-search-result>.search-result-list li");
-						if(keyCode == 38 || keyCode == 40 || keyCode == 13){
-							liNode.removeClass("hover");
-							if(keyCode == 38){
-								if(currentIndex - 1 >= 0) currentIndex --;
-							}
-							if(keyCode == 40){
-								if(currentIndex + 1 < liNode.length) currentIndex ++;
-							}
-							if(keyCode == 13){
-								location.href = liNode.eq(currentIndex).find("a").attr("href");
-							}
-							liNode.eq(currentIndex).addClass("hover");
-							return false;
-						}else{
-							currentIndex = -1;
-						}
-					})
-				})
-			</script>
-		<% } %>
-
 		<%- js('js/index') %>
 
 		<% if (theme.github.username && theme.github.popular_repos) { %> <%- js('js/popular_repo') %> <% } %>
