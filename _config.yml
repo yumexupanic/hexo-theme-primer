@@ -4,7 +4,8 @@ menus:
 		link: /
 	- 
 		name: 分类
-		link: categories/
+		link: category/
+		target: true
 	- 
 		name: 开源项目
 		link: open-source/
@@ -12,7 +13,6 @@ menus:
 		name: 留言板
 		link: message/
 
-# Profile
 profile:
 	location: ChengDu, China
 	github: yumemor
@@ -21,16 +21,12 @@ profile:
 		#href: http://stackoverflow.com/users/5662132/yumemor
 	#organization: 组织/公司
 
-#Github
 github: 
 	username: yumemor
-  popular_repos: [ysale-sms,scude-answer,cordova-plugin-alipay]
+  popular_repos: [hexo-theme-primer]
 
-#Comments
-duoshuo_username: yumemor # 多说配置
-#disqus_username: yumemor # disqus 配置
+comment:
+	duoshuo_username: 
+	#disqus_username: 
 
-# Search 
-# google | local
-search:
-    use: local
+search: local #google｜local

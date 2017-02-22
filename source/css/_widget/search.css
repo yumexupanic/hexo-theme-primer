@@ -23,3 +23,7 @@
 #local-search-result>ul.search-result-list>li.hover p{
     color: #FFF;
 }
+
+input#search{
+	width: 82%;
+}

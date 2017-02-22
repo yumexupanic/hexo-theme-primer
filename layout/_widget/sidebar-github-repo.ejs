@@ -1,6 +1,5 @@
+<% if (theme.github.username && theme.github.popular_repos.length) { %>
 <h3>Popular Repositories</h3>
-<% if (theme.github.username && theme.github.popular_repos) { %>
-    
     <div class="popular-container"></div>
     
     <script type="text/template" id="popular-list-template">
@@ -76,6 +75,4 @@
         }; 
         $(popular_repos().init);
     </script>
-<% } else {%>
-
 <%}%>
