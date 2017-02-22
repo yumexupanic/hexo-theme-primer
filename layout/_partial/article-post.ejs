@@ -14,7 +14,7 @@
                 <iframe src="/donate" style="overflow-x:hidden;overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;"  frameborder="0" scrolling="no"></iframe>
             <%}%>
             <% if(page.comment == undefined ? true : page.comment) {%>
-                <%if(theme.disqus_username){%>
+                <%if(theme.comment.disqus_username){%>
                     <%- partial('_widget/disqus-comments',{
                         key: post.slug,
                         title: post.title,
