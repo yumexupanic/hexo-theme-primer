@@ -1,3 +1,7 @@
+#hexo-theme-primer
+
+The github style (primer) for Hexo theme. 
+
 ![](http://oct8d1mqf.bkt.clouddn.com/2017-03-15-15%3A48%3A24.jpg)
 
 ## Document
