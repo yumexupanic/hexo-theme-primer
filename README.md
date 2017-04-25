@@ -1,4 +1,4 @@
-#hexo-theme-primer
+# hexo-theme-primer
 
 The github style (primer) for Hexo theme. 
 
