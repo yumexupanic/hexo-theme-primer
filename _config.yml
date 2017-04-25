@@ -1,16 +1,15 @@
 menus:
 	- 
-		name: 首页
+		name: Home
 		link: /
 	- 
-		name: 分类
-		link: category/
-		target: true
+		name: Category
+		link: categories/
 	- 
-		name: 开源项目
+		name: Open-Source
 		link: open-source/
 	- 
-		name: 留言板
+		name: Message
 		link: message/
 
 profile:
@@ -25,8 +24,8 @@ github:
 	username: yumemor
   popular_repos: [hexo-theme-primer]
 
-comment:
-	duoshuo_username: 
-	#disqus_username: 
-
 search: local #google｜local
+
+# 多说已关闭 目前只支持 disqus
+comment:
+	disqus_username: disqus_name

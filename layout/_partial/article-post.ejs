@@ -1,6 +1,6 @@
 <section class="container">
     <div class="columns">
-        <div class="column <%if (page.toc == undefined ? true:page.toc) {%> three-fourths <%}%>" > 
+        <div class="column <%if (page.toc == undefined ? true:page.toc) {%> three-fourths <%} else {%> single-column <%}%>" >
             <article class="article-content markdown-body">
                 <%- post.content %>
             </article>
@@ -10,18 +10,10 @@
                 </div>    
             <% } %>
 
-            <% if(page.donate) {%>
-                <iframe src="/donate" style="overflow-x:hidden;overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;"  frameborder="0" scrolling="no"></iframe>
-            <%}%>
+            
             <% if(page.comment == undefined ? true : page.comment) {%>
                 <%if(theme.comment.disqus_username){%>
                     <%- partial('_widget/disqus-comments',{
-                        key: post.slug,
-                        title: post.title,
-                        url: config.url+url_for(post.path)
-                    }) %>
-                <%} else {%>
-                    <%- partial('_widget/duoshuo-comments',{
                         key: post.slug,
                         title: post.title,
                         url: config.url+url_for(post.path)
