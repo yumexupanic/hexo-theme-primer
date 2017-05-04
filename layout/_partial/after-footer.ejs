@@ -1,14 +1,11 @@
-		<%- js('js/geopattern') %>
-		<%- js('js/highlight.pack') %>
-		<%- js('lib/fancybox/jquery.fancybox-1.3.4.pack') %>
+		
+		<%- js('js/typer.js') %>
 
-		<%if(page.toc){%>
-			<%- js('js/toc') %>
-		<%}%>
+		<%- js('js/geopattern.js') %>
 
-		<%- js('js/index') %>
+		<%- js('js/index.js') %>
 
-		<% if (theme.github.username && theme.github.popular_repos) { %> <%- js('js/popular_repo') %> <% } %>
+		<% if (theme.profile.github && theme.github && theme.github.popular_repos) { %> <%- js('js/popular_repo.js') %> <% } %>
 
 	</body>
 </html>

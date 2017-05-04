@@ -1,4 +1,4 @@
-<body class="home">
-	<%- partial('_partial/header') %>
-	<%- partial('_partial/banner-post',{post: page,index: false}) %>
-	<%- partial('_partial/categories',{page: page,type: false}) %>
+<body>
+	<%- partial('_partial/header',{post: page}) %>
+	<%- partial('_partial/banner-post',{post: page}) %>
+	<%- partial('_partial/blog', {post: page}) %>

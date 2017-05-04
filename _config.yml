@@ -1,17 +1,11 @@
-menus:
-	- 
-		name: Home
-		link: /
-	- 
-		name: Category
-		link: categories/
-	- 
-		name: Open-Source
-		link: open-source/
-	- 
-		name: Message
-		link: message/
+# Header
+menu:
+	Home: /
+	Open-Source: open-source/
+	Blog: blog/
+	Guestbook: guestbook/
 
+# Profile
 profile:
 	location: ChengDu, China
 	github: yumemor
@@ -20,12 +14,22 @@ profile:
 		#href: http://stackoverflow.com/users/5662132/yumemor
 	#organization: 组织/公司
 
-github: 
-	username: yumemor
-  popular_repos: [hexo-theme-primer]
+#Widget
+sidebar: true
+navfixed: false
 
-search: local #google｜local
+#WidgetText
+excerpt_link: 继续阅读
 
-# 多说已关闭 目前只支持 disqus
-comment:
-	disqus_username: disqus_name
+#Github(请务必配置github帐号)
+github:
+  popular_repos: ['ysale-sms','scude-answer','cordova-plugin-alipay']
+  contribute_repos: ['yumemor/fexo','yumemor/site']
+
+#Comments
+comments:
+	duoshuo_username: yumemor # 多说配置
+	disqus_username: yumemor # disqus 配置
+
+#Source Code
+source_code: https://github.com/yumemor/yumemor.github.io

@@ -1,10 +1,19 @@
-<section class="banner-false">
+<% if (theme.navfixed == undefined ? false : theme.navfixed) { %>
+    <section class="banner">
+<% } else { %>
+    <section class="banner-false">
+<% } %>
     <div class="collection-head">
         <div class="container">
             <div class="collection-title">
                 <h1 class="collection-header" id="site-description">
                     <%-config.description%>
                 </h1>
+                <script type="text/javascript">
+                    $(function(){
+                        
+                    });
+                </script>
                 <div class="collection-info">
                     <% 
                         var profile = new Object();

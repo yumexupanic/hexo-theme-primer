@@ -1,19 +1,59 @@
 // https://github.com/ghiculescu/jekyll-table-of-contents
 // Updated by http://mazhuang.org
-
 (function($){
+
+  function Stack(){
+    this.dataStore = []
+    this.top    = 0;
+    this.push   = push
+    this.pop    = pop
+    this.peek   = peek
+    this.length = length;
+    this.toc_number = toc_number;
+    this.inc_number = inc_number;
+  }
+
+  function push(element){
+    this.dataStore[this.top++] = element;
+  }
+
+  function peek(element){
+    return this.dataStore[this.top-1];
+  }
+
+  function pop(){
+    return this.dataStore[--this.top];
+  }
+
+  function clear(){
+    this.top = 0
+  }
+
+  function length(){
+    return this.top
+  }
+
+  function toc_number() {
+    var num = "";
+    for (i = 0; i < this.top; i++) {
+      num += this.dataStore[i] + ".";
+    }
+    return num;
+  }
+
+  function inc_number() {
+    this.dataStore[this.top - 1]++;
+  }
+
   $.fn.toc = function(options) {
     var defaults = {
       noBackToTopLinks: false,
-      title: '<i>Jump to...</i>',
-      minimumHeaders: 3,
+      title: '文章目录',
+      minimumHeaders: 2,
       headers: 'h1, h2, h3, h4, h5, h6',
-      listType: 'ol', // values: [ol|ul]
+      listType: 'ul', // values: [ol|ul]
       showEffect: 'show', // values: [show|slideDown|fadeIn|none]
-      showSpeed: 'slow', // set to 0 to deactivate effect
-      classes: { list: '',
-                 item: ''
-               }
+      showSpeed: 0 // set to 0 to deactivate effect
     },
     settings = $.extend(defaults, options);
 
@@ -21,11 +61,6 @@
       return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
         return '%' + c.charCodeAt(0).toString(16);
       });
-    }
-
-    function createLink (header) {
-      var innerText = (header.textContent === undefined) ? header.innerText : header.textContent;
-      return "<a href='#" + fixedEncodeURIComponent(header.id) + "'>" + innerText + "</a>";
     }
 
     var headers = $(settings.headers).filter(function() {
@@ -52,13 +87,16 @@
       none: function() { output.html(html); }
     };
 
-    var get_level = function(ele) { return parseInt(ele.nodeName.replace("H", ""), 10); };
+    var get_level = function(ele) { return parseInt(ele.nodeName.replace("H", ""), 10); }
     var highest_level = headers.map(function(_, ele) { return get_level(ele); }).get().sort()[0];
     var return_to_top = '<i class="icon-arrow-up back-to-top"> </i>';
 
+    var stack = new Stack();
+    stack.push(0);
     var level = get_level(headers[0]),
-      this_level,
-      html = settings.title + " <" +settings.listType + " class=\"" + settings.classes.list +"\">";
+    this_level,
+    html = "<p><strong class=\"toc-title\">" + settings.title + "</strong></p>\n";
+    html += " <"+settings.listType+" class=\"toc\">";
     headers.on('click', function() {
       if (!settings.noBackToTopLinks) {
         window.location.hash = this.id;
@@ -70,20 +108,38 @@
       if (!settings.noBackToTopLinks && this_level === highest_level) {
         $(header).addClass('top-level-header').after(return_to_top);
       }
-      if (this_level === level) // same level as before; same indenting
-        html += "<li class=\"" + settings.classes.item + "\">" + createLink(header);
-      else if (this_level <= level){ // higher level than before; end parent ol
+      if (this_level === level) {// same level as before; same indenting
+        stack.inc_number();
+        html += "<li class=\"toc-item toc-level-" + this_level + "\">";
+        html += "<a class=\"jumper\" href='#" + fixedEncodeURIComponent(header.id) + "'>";
+        //        html += "<span class='toc-number'>" + stack.toc_number() + "</span>"
+        html += "<span class='toc-text'>" + header.innerHTML + "</span>";
+        html += "</a>";
+
+      } else if (this_level <= level){ // higher level than before; end parent ol
         for(i = this_level; i < level; i++) {
+          stack.pop();
           html += "</li></"+settings.listType+">"
         }
-        html += "<li class=\"" + settings.classes.item + "\">" + createLink(header);
+        stack.inc_number();
+        html += "<li class='toc-item toc-level-" + this_level + "'><a class=\"jumper\" href='#" + fixedEncodeURIComponent(header.id) + "'>";
+        //        html += "<span class='toc-number'>" + stack.toc_number() + "</span>"
+        html += "<span class='toc-text'>" + header.innerHTML + "</span>";
+        html += "</a>";
       }
       else if (this_level > level) { // lower level than before; expand the previous to contain a ol
-        for(i = this_level; i > level; i--) {
-          html += "<" + settings.listType + " class=\"" + settings.classes.list +"\">" +
-                  "<li class=\"" + settings.classes.item + "\">"
+        if (stack.length() > 1) {
+          return;
         }
-        html += createLink(header);
+        for(i = this_level; i > level; i--) {
+          stack.push(0);
+          html += "<"+settings.listType+" class='toc-child'><li class='toc-item toc-level-" + i + "'>"
+        }
+        stack.inc_number();
+        html += "<a class=\"jumper\" href='#" + fixedEncodeURIComponent(header.id) + "'>";
+        //        html += "<span class='toc-number'>" + stack.toc_number() + "</span>"
+        html += "<span class='toc-text'>" + header.innerHTML + "</span>";
+        html += "</a>";
       }
       level = this_level; // update for the next one
     });
@@ -99,14 +155,12 @@
   };
 })(jQuery);
 
-
-
 $(document).ready(function(){
   
-  //$('.post-directory').toc();
+  $('.post-directory').toc();
 
   var fixmeTop = $('#post-directory-module').offset().top;
-  var tocSections = $('h1,h2,h3,h4,h5,h6');
+  var tocSections = $('.clickable-header');
   var tocSectionOffsets = [];
 
   var calculateTocSections = function(){
@@ -124,11 +178,11 @@ $(document).ready(function(){
     var sectionsCount = tocSectionOffsets.length;
     var currentScroll = $(window).scrollTop();
 
-    if (currentScroll > tocSectionOffsets[sectionsCount-1]) {
+    if (currentScroll+60 > tocSectionOffsets[sectionsCount-1]) {
       highlightIndex = sectionsCount;
     } else {
       for (var i=0; i<sectionsCount; i++) {
-        if (currentScroll <= tocSectionOffsets[i]) {
+        if (currentScroll+60 <= tocSectionOffsets[i]) {
           highlightIndex = i;
           break;
         }
@@ -137,15 +191,13 @@ $(document).ready(function(){
     if (highlightIndex == 0) {
       highlightIndex += 1;
     }
-
-    //$('.toc-item .toc-link').removeClass('on');
-    //$('.toc-item .toc-link').eq(highlightIndex-1).addClass('on');
+    $('.toc-item .jumper').removeClass('on');
+    $('.toc-item .jumper').eq(highlightIndex-1).addClass('on');
   }
   highlightTocSection();
 
   $(window).scroll(function() {
     var currentScroll = $(window).scrollTop();
-
     if (currentScroll >= fixmeTop) {
       $('#post-directory-module').css({
         top: '0',
@@ -163,9 +215,8 @@ $(document).ready(function(){
   });
 });
 
-$(".toc-link").on("click", function( e ) {
+$(".jumper").on("click", function( e ) {
   e.preventDefault();
-  //$(this).addClass("on");
   $("body, html").animate({
     scrollTop: $( $(this).attr('href') ).offset().top
   }, 600);

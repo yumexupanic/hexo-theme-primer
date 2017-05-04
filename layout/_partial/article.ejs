@@ -3,7 +3,7 @@
       <h3 class="repo-list-name" itemprop="name">
         <%- partial('post/title', {class_name: 'article-title'}) %>
       </h3>
-      <div class="repo-list-description">
+      <div class="repo-list-description article-entry">
         <% if (post.excerpt && index){ %>
           <%- post.excerpt %>
         <% } else { %>
@@ -16,13 +16,6 @@
            <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
         </span>
 
-        <%if(post.categories && post.categories.length){%>
-          <span class="meta-info">
-            <span class="octicon octicon-file-directory"></span>
-            <%- getCategory(post)%>
-          </span>
-        <%}%>
-      
         <!--
           <% if (post.tags && post.tags.length){ %>
             <%- list_tags(post.tags, {
@@ -32,6 +25,12 @@
           <% } %>
         -->
 
+        
+        <% if (theme.excerpt_link){ %>
+            <span class="article-more-link">
+              <a href="<%- url_for(post.path) %>#more" class="btn btn-sm btn-outline"><%= theme.excerpt_link %></a>
+           </span>
+        <% } %>
       </p>
     </div>
   </article>

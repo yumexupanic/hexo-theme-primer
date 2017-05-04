@@ -1,16 +1,23 @@
-<header class="site-header navfixed-false">
+<% if (theme.navfixed == undefined ? false : theme.navfixed) { %>
+  <header class="site-header site-color" id="site-header-id">
+<% } else { %>
+  <header class="site-header navfixed-false">
+<% } %>
   <div class="container">
-       <h1><a href="<%- url_for() %>" title="<%= config.title %>"><span class="octicon octicon-mark-github"></span> <%= config.title %></a></h1>
-      </h1>
+      <h1><a href="<%- url_for() %>" title="<%= config.title %>"><span class="octicon octicon-mark-github"></span> <%= config.title %></a></h1>
       <nav class="site-header-nav" role="navigation">
-        <% for (var nav in theme.menus) { %>
+        <% for (var nav in theme.menu) { %>
               <%
-                var title = theme.menus[nav].name;
-                var href = theme.menus[nav].link;
-                var link = "^" + href;  
-                var target = theme.menus[nav].target;
+                var title = nav;
+                var href = theme.menu[nav];
+                var target = null;
+
+                if(typeof theme.menu[nav] == "object"){
+                  href = theme.menu[nav].href;
+                  target = theme.menu[nav].target;
+                }
               %>
-              <a href="<%- url_for(href) %>" <%if(target){%>target="<%=target%>"<%}%> class="<% if (page && page.path.match(link)) { %> selected <% } %> site-header-nav-item hvr-float-shadow" title="<%= title %>"><%= title %></a>
+              <a href="<%- url_for(href) %>" <%if(target){%>target="target"<%}%> class="<% if (page && page.link == href) { %> selected <% } %> site-header-nav-item hvr-underline-from-center" title="<%= title %>"><%= title %></a>
         <% } %>
       </nav>
   </div>
