@@ -1,6 +1,7 @@
 <header class="site-header navfixed-false">
   <div class="container">
-      <h1><a href="<%- url_for() %>" title="<%= config.title %>"><span class="octicon octicon-mark-github"></span> <%= config.title %></a></h1>
+       <h1><a href="<%- url_for() %>" title="<%= config.title %>"><span class="octicon octicon-mark-github"></span> <%= config.title %></a></h1>
+      </h1>
       <nav class="site-header-nav" role="navigation">
         <% for (var nav in theme.menus) { %>
               <%
@@ -9,7 +10,7 @@
                 var link = "^" + href;  
                 var target = theme.menus[nav].target;
               %>
-              <a href="<%- url_for(href) %>" <%if(target){%>target="<%=target%>"<%}%> class="<% if (page && page.path.match(link)) { %> selected <% } %> site-header-nav-item hvr-underline-from-center" title="<%= title %>"><%= title %></a>
+              <a href="<%- url_for(href) %>" <%if(target){%>target="<%=target%>"<%}%> class="<% if (page && page.path.match(link)) { %> selected <% } %> site-header-nav-item hvr-float-shadow" title="<%= title %>"><%= title %></a>
         <% } %>
       </nav>
   </div>
