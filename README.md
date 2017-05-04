@@ -1,6 +1,6 @@
 ## 这里是开发分支
 
-- [ ] banner 黑色风格修改
+- [x] banner 黑色风格修改
 - [ ] 文章访问量统计
 - [ ] github repository 样式修改
 
