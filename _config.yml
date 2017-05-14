@@ -27,5 +27,11 @@ github:
 search: local #google｜local
 
 # 多说已关闭 目前只支持 disqus
+# gitment是基于repo的issus的评论系统，项目地址:https://github.com/imsun/gitment
+# 在https://github.com/settings/applications/new注册
 comment:
 	disqus_username: disqus_name
+# gitment_owner: github_id
+# gitment_repo: 存放评论的repo
+# gitment_client_id: 申请的client_id
+# gitment_client_secret: 申请的client_secret
