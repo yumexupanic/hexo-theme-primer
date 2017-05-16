@@ -13,5 +13,5 @@ The github style (primer) for Hexo theme.
 
 > 感谢下面的小伙伴的贡献 
 
-- Bakumon[https://github.com/Bakumon]
-- isnine[https://github.com/isnine]
+- [Bakumon](https://github.com/Bakumon)
+- [isnine](https://github.com/isnine)
