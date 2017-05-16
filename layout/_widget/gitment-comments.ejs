@@ -1,17 +1,16 @@
 
 <div class="comments">
     <div id="container"></div>
-        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <%- js('js/gitment.browser') %>
          <script>
             var gitment = new Gitment({
-            id: location.pathname, // 可选。默认为 location.href
-            owner: "<%= theme.comment.gitment_owner %>",
-            repo: "<%= theme.comment.gitment_repo %>",
-            oauth: {
-            client_id: "<%= theme.comment.gitment_client_id %>",
-            client_secret: "<%= theme.comment.gitment_client_secret %>",
-            },
+                id: '<%=url%>',
+                owner: '<%= theme.gitment_owner %>',
+                repo: '<%= theme.gitment_repo %>',
+                oauth: {
+                    client_id: "<%= theme.gitment_client_id %>",
+                    client_secret: "<%= theme.gitment_client_secret %>",
+                }
             })
         gitment.render('container')
         </script>
