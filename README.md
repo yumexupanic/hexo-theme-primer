@@ -8,3 +8,10 @@ The github style (primer) for Hexo theme.
 [http://yumemor.github.io/hexo-theme-primer](http://yumemor.github.io/hexo-theme-primer)
 
 > 欢迎 Star Fork 。 
+
+## 贡献列表
+
+> 感谢下面的小伙伴的贡献 
+
+- Bakumon[https://github.com/Bakumon]
+- isnine[https://github.com/isnine]
