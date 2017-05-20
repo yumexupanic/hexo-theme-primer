@@ -11,14 +11,18 @@
             <% } %>
 
             
-            <% if(page.comment == undefined ? true : page.comment) {%>
-                <%if(theme.comment.disqus_username){%>
-                    <%- partial('_widget/disqus-comments',{
-                        key: post.slug,
-                        title: post.title,
-                        url: config.url+url_for(post.path)
-                    }) %>
-                <%}%>
+            <%if(theme.disqus_username){%>
+                <%- partial('_widget/disqus-comments',{
+                    key: post.slug,
+                    title: post.title,
+                    url: config.url+url_for(post.path)
+                }) %>
+             <%} else {%>
+                <%- partial('_widget/gitment-comments',{
+                    key: post.slug,
+                    title: post.title,
+                    url: url_for(post.path)
+                }) %>
             <%}%>
 
         </div>

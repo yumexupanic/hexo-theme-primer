@@ -1,0 +1,17 @@
+
+<div class="comments">
+    <div id="container"></div>
+        <%- js('js/gitment.browser') %>
+         <script>
+            var gitment = new Gitment({
+                id: '<%=url%>',
+                owner: '<%= theme.gitment_owner %>',
+                repo: '<%= theme.gitment_repo %>',
+                oauth: {
+                    client_id: "<%= theme.gitment_client_id %>",
+                    client_secret: "<%= theme.gitment_client_secret %>",
+                }
+            })
+        gitment.render('container')
+        </script>
+</div>

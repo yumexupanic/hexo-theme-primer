@@ -1,6 +1,6 @@
 # 概述
 
-这是一个 Github 风格的 Hexo 主题，简约大气 适合喜欢 Github 风格的小伙伴使用 😄 😄 😄
+这是一个 Github 风格的 Hexo 主题，简约大气 适合喜欢 Github 风格的小伙伴使用
 
 # 安装
 
@@ -26,7 +26,7 @@ profile:
 	stackoverflow: #stackoverflow 账号
 		title: 
 		href: 
-	organization: alibaba #组织或者公司
+	organization: open #组织或者公司
 ```
 
 ## Github 仓库配置
@@ -36,6 +36,8 @@ github:
 	username: yumemor
   popular_repos: [hexo-theme-primer]
 ```
+
+> 想显示多个项目 请用逗号进行分割
 
 # 页面
 ## 导航
@@ -125,11 +127,10 @@ search: google
 
 ```yaml
 comment:
-	duoshuo_username: 
 	disqus_username: 
 ```
 
-! 在国内还是建议用多说，`disqus` 需要翻墙。
+> 由于[多说](http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241) 即将关闭，所以去掉了多说的支持 目前只集成了 disqus 因为国内的网易云跟帖&畅言 都不好用 如果有这方面的需求 欢迎开 issues
 
 ## 代码高亮
 
