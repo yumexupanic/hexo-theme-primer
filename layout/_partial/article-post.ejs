@@ -4,12 +4,6 @@
             <article class="article-content markdown-body">
                 <%- post.content %>
             </article>
-            <% if (page.share == undefined ? true : page.share) { %>
-                <div class="share">
-                    <%- partial('_widget/sns-share',{page: page}) %>
-                </div>    
-            <% } %>
-
             
             <%if(theme.disqus_username){%>
                 <%- partial('_widget/disqus-comments',{
