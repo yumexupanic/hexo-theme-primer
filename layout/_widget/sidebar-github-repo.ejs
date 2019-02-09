@@ -1,4 +1,4 @@
-<% if (theme.github.username && theme.github.popular_repos.length) { %>
+<% if (theme.github.username && theme.github.popular_repos) { %>
 <h3>Popular Repositories</h3>
     <div class="popular-container"></div>
     
@@ -48,20 +48,37 @@
             var handleGithub = function(){
                 var popularContainer = $(".popular-container");
 
-                var repos = "<%=theme.github.popular_repos%>".split(",");
-                for(var i in repos){
-                    var name = repos[i];
-                    $.get("https://api.github.com/repos/<%=theme.profile.github%>/"+name,handle);
-                }
+                $.get("https://api.github.com/users/<%=theme.profile.github%>/repos",handle);
+
 
                 function handle(result){
-                    result.updated_at = result.updated_at.split("T")[0];
-                    if(result){
-                        var html = baiduTpl.popular_list(result);
-                        popularContainer.append(html);
-                        $(".geopattern").each(function(){           
-                            $(this).geopattern($(this).data('pattern-id'));
-                        });
+
+
+                    for(let i = 0 ; i < result.length - i; i++){
+
+                        for(let j = i + 1 ; j < result.length; j++){
+
+                            if(result[i].stargazers_count < result[j].stargazers_count){
+                                let tmp = result[i];
+                                result[i] = result[j];
+                                result[j] = tmp;
+                            }
+
+                        }
+
+                    }
+
+                    for(var i = 0 ; i < result.length && i < <%=theme.github.popular_repos%>; i++){
+                        var repo = result[i];
+
+                        repo.updated_at = repo.updated_at.split("T")[0];
+                        if(repo){
+                            var html = baiduTpl.popular_list(repo);
+                            popularContainer.append(html);
+                            $(".geopattern").each(function(){
+                                $(this).geopattern($(this).data('pattern-id'));
+                            });
+                        }
                     }
                 }
             };

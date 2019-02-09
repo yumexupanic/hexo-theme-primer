@@ -5,11 +5,11 @@
          <script>
             var gitment = new Gitment({
                 id: '<%=url%>',
-                owner: '<%= theme.gitment_owner %>',
-                repo: '<%= theme.gitment_repo %>',
+                owner: '<%= theme.comment.gitment.owner %>',
+                repo: '<%= theme.comment.gitment.repo %>',
                 oauth: {
-                    client_id: "<%= theme.gitment_client_id %>",
-                    client_secret: "<%= theme.gitment_client_secret %>",
+                    client_id: "<%= theme.comment.gitment.client_id %>",
+                    client_secret: "<%= theme.comment.gitment.client_secret %>",
                 }
             })
         gitment.render('container')

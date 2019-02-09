@@ -4,22 +4,23 @@
     <script>
 
         var host = window.location.host;
-        var disqus_shortname = host.includes('127.0.0.1') || host.includes('0.0.0.0') || host.includes('localhost') ? '<%=theme.comment.disqus_username%>Dev' : '<%=theme.comment.disqus_username%>'
+        var disqus_shortname = host.includes('127.0.0.1') || host.includes('0.0.0.0') || host.includes('localhost') ? '<%=theme.comment.disqus.username%>' : '<%=theme.comment.disqus.username%>'
 
         var disqus_title = '<%=title%>';
         var disqus_config = function () {
             this.page.url = '<%=url%>';
         };
-        
+            
         (function() {
             var d = document, s = d.createElement('script');
 
-            s.src = '//<%=theme.comment.disqus_username%>.disqus.com/embed.js';
+            s.src = '//<%=theme.comment.disqus.username%>.disqus.com/embed.js';
 
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         })();
     </script>
+    <script id="dsq-count-scr" src="//kanshan.disqus.com/count.js" async></script>
     <noscript>
         请启用JavaScript来查看 <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
     </noscript>

@@ -5,17 +5,17 @@
                 <%- post.content %>
             </article>
             
-            <%if(theme.disqus_username){%>
+            <%if(theme.comment.disqus.enable){%>
                 <%- partial('_widget/disqus-comments',{
                     key: post.slug,
                     title: post.title,
                     url: config.url+url_for(post.path)
                 }) %>
-             <%} else {%>
+             <%} else if(theme.comment.gitment.enable)  {%>
                 <%- partial('_widget/gitment-comments',{
                     key: post.slug,
                     title: post.title,
-                    url: url_for(post.path)
+                    url: page.title
                 }) %>
             <%}%>
 
