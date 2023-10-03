@@ -17,11 +17,9 @@
                     title: post.title,
                     url: config.url+url_for(post.path)
                 }) %>
-             <%} else {%>
-                <%- partial('_widget/gitalk-comments',{
-                    key: post.slug,
-                    title: post.title,
-                    url: url_for(post.path)
+             <%} else if(theme.twikoo_envId) {%>
+                <%- partial('_widget/twikoo-comments',{
+                    
                 }) %>
             <%}%>
 

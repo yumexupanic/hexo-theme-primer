@@ -14,23 +14,26 @@ menus:
 
 profile:
 	location: ChengDu, China
-	github: yumemor
+	github: yumexupanic
 	#stackoverflow: 
-		#title: yumemor
-		#href: http://stackoverflow.com/users/5662132/yumemor
+		#title: 
+		#href: 
 	#organization: 组织/公司
 
 github: 
-	username: yumemor
+	username: yumexupanic
   popular_repos: [hexo-theme-primer]
 
 search: local #google｜local
 
 
-# 多说已关闭 目前支持 Disqus 和 Gitmet(两者选一)
+# 多说已关闭 目前支持 Disqus Gitmet Twikoo
+
+#Twikoo
+#twikoo_envId: 
 
 #Disqus
-disqus_username:
+#disqus_username:
 
 #Giemtn 是基于repo的issus的评论系统，项目地址: https://github.com/imsun/gitment
 #在 https://github.com/settings/applications/new 注册
